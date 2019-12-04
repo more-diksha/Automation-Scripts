@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
  *
  * @author Diksha
  */
-public class TestboxMethods {
+public class TextboxMethods {
    public static void main(String args[]){
        
        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Diksha\\Documents\\NetBeansProjects\\mavenproject1\\drivers\\chromedriver.exe");
