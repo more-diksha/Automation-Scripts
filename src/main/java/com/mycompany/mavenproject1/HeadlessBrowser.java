@@ -8,7 +8,7 @@ package com.mycompany.mavenproject1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.remote.session.ChromeFilter;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  *
