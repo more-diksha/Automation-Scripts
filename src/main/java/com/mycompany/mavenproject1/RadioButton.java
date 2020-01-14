@@ -21,11 +21,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class RadioButton {
   
     public static void main(String args[]) throws InterruptedException{
-    System.setProperty("webdriver.chrome.driver","C:\\Users\\Diksha\\Documents\\NetBeansProjects\\mavenproject1\\drivers\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\Users\\admin\\Documents\\NetBeansProjects\\SeleniumPracticeProject\\drivers\\chromedriver.exe");
     WebDriver driver = new ChromeDriver();
     
     //Save url in the String
-    String baseurl = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
+    String baseurl = "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation";
     
     //Maximize the windows that is launched
     driver.manage().window().maximize();
@@ -33,18 +33,35 @@ public class RadioButton {
     //Go to the url
     driver.get(baseurl);
     
-    // create object of WebDriverWait Class 
-        WebDriverWait explicitwait = new WebDriverWait(driver, 50);
+    //Email TextBox
+    WebElement textboxemail = driver.findElement(By.id("email_create"));
+    textboxemail.sendKeys("manoj.dhadke@getflint.io");
     
-     //Wait untill Element is not visible
-        WebElement element = (WebElement) explicitwait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\\\"easycont\\\"]/div/div[2]/div[1]/div[2]/label[1]")));
-        //Boolean status = element.booleanValue();
-        
+    //Submit Button
+    WebElement submitbutton = driver.findElement(By.id("SubmitCreate"));
+    submitbutton.click();
+    
+       Thread.sleep(3000);
+    //
+    
     //Get Male radio button
-    WebElement male_radio_button = driver.findElement(By.className("radio-inline"));
-    Boolean status = male_radio_button.isDisplayed();
-    System.out.println("The very first status of the Radio button is ------->" + status);
+    WebElement male_radio_button = driver.findElement(By.id("uniform-id_gender1"));
     
+        System.out.println(" ========================>>>. The status of Radio button is " + male_radio_button.isDisplayed() + "<<<===============");
+    Thread.sleep(3000);
+    
+    //Get the text of the radio button
+    List <WebElement> male_radio_button1 = driver.findElements(By.id("uniform-id_gender1"));
+    for(int i = 0; i< male_radio_button1.size(); i++)
+    {
+        System.out.println("----------------" + male_radio_button1.get(i).getAttribute("text"));
+    } 
+        Thread.sleep(3000);
+    male_radio_button.click();  
+    Thread.sleep(3000);
+    
+    //Close the browser
+    driver.close();
     
     }
 }
